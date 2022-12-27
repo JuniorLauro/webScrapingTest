@@ -1,0 +1,25 @@
+To activate the venv --> In PS: env\Scripts\Activate.ps1
+To deactivate the venv --> In PS: deactivate
+Install Scrapy --> In PS: pip install scrapy
+Create a scrapy project --> In venv: scrapy startproject <nameProject>
+Go to dir --> In venv: cd <nameProject>
+Create a genspider --> In venv:  scrapy genspider funds fundsexplorer.com.br
+Start the scrapy shell --> In venv: scrapy shell
+Testing the connection --> In Scrapy Shell: fetch('URL')
+
+
+-------------- Using Selector Gadget to get information about the data source --------------------
+.card_destaques_home --> Box w/ information about the daily Fii's
+#destaques_home a --> Name Fii
+.cotacao_destaques_home --> Price of the quota
+#destaques_home strong --> Sector
+li:nth-child(2) strong --> P/VP
+li~ li+ li strong --> DY
+--------------------------------------------------------------------------------------------------
+
+Testing data --> In Scrapy Shell: response.css('.card_destaques_home').get()   //Just the first from the list
+Finish the test in Scrapy Shell --> quit()
+To start the code --> In venv: scrapy crawl <nameProject> -O fundos.json //In this case, the name is funds
+
+It's important that the folder of the project being inside the venv and you're locate in the project folder to run
+the code scrapy crawl
